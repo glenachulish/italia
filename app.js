@@ -185,6 +185,11 @@
         });
       });
     });
+    // "transport" always appears — tapping it reveals the Getting Around panels,
+    // even if no individual place carries the tag.
+    if (ITALIA.regions.some(function (r) { return r.travel && r.travel.length; })) {
+      seen.transport = true;
+    }
     return Object.keys(seen).sort();
   }
 
@@ -196,18 +201,30 @@
       var show = !tag || tags.indexOf(tag) !== -1;
       node.style.display = show ? "" : "none";
     });
-    // Hide towns / regions that have no visible places.
+    // Travel panels show only on "Everything" or the transport filter.
+    var showTravel = !tag || tag === "transport";
+    app.querySelectorAll(".travel-card").forEach(function (tc) {
+      tc.style.display = showTravel ? "" : "none";
+    });
+    // Hide towns that have places but none currently visible.
+    // (Travel cards are skipped — they're handled above.)
     app.querySelectorAll(".town").forEach(function (town) {
+      if (town.classList.contains("travel-card")) return;
       var visible = town.querySelectorAll(".place:not([style*='none'])").length;
       var hasPlaces = town.querySelectorAll(".place").length > 0;
       town.style.display = (hasPlaces && !visible) ? "none" : "";
     });
+    // Hide regions where nothing is visible (no visible towns AND no visible travel card).
     app.querySelectorAll(".region").forEach(function (region) {
       var visibleTowns = Array.prototype.filter.call(
-        region.querySelectorAll(".town"),
+        region.querySelectorAll(".town:not(.travel-card)"),
         function (t) { return t.style.display !== "none"; }
       ).length;
-      region.style.display = visibleTowns ? "" : "none";
+      var travelVisible = Array.prototype.some.call(
+        region.querySelectorAll(".travel-card"),
+        function (t) { return t.style.display !== "none"; }
+      );
+      region.style.display = (visibleTowns || travelVisible) ? "" : "none";
     });
   }
 
@@ -224,7 +241,8 @@
     bar.appendChild(all);
 
     allTags().forEach(function (tag) {
-      var b = el("button", "fchip", tag);
+      var labels = { transport: "Getting around" };
+      var b = el("button", "fchip", labels[tag] || tag);
       b.addEventListener("click", function () {
         setActiveChip(b);
         applyFilter(tag);
