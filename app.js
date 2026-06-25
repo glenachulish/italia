@@ -112,6 +112,27 @@
       card.appendChild(wrap);
     }
 
+    if (town.food && town.food.length) {
+      card.appendChild(el("p", "section-label", "Eat & drink"));
+      var fwrap = el("div", "food");
+      town.food.forEach(function (f) {
+        var row = el("div", "food-item");
+        var head = el("div", "food-head");
+        head.appendChild(el("span", "food-name", f.name));
+        if (f.kind) head.appendChild(el("span", "food-kind " + f.kind, f.kind));
+        row.appendChild(head);
+        if (f.note) row.appendChild(el("p", "food-note", f.note));
+        if (f.maps) {
+          var fa = el("div", "actions");
+          fa.appendChild(actionLink("btn maps", "Maps", mapsUrl(f.maps),
+            "Open " + f.name + " in Maps"));
+          row.appendChild(fa);
+        }
+        fwrap.appendChild(row);
+      });
+      card.appendChild(fwrap);
+    }
+
     if (town.tips && town.tips.length) {
       card.appendChild(el("p", "section-label", "Local tips"));
       card.appendChild(tipList(town.tips));
@@ -127,6 +148,26 @@
     head.appendChild(el("h2", "region-name", region.name));
     if (region.tagline) head.appendChild(el("p", "region-tag", region.tagline));
     section.appendChild(head);
+
+    if (region.travel && region.travel.length) {
+      var tcard = el("article", "town travel-card");
+      tcard.appendChild(el("p", "section-label", "Getting around"));
+      region.travel.forEach(function (t) {
+        var row = el("div", "travel-item");
+        row.appendChild(el("div", "travel-route", t.route));
+        if (t.detail) row.appendChild(el("p", "travel-detail", t.detail));
+        if (t.url) {
+          var ta = el("div", "actions");
+          ta.appendChild(actionLink("btn info", "Timetable & fares", t.url,
+            t.route + " — official info"));
+          row.appendChild(ta);
+        }
+        tcard.appendChild(row);
+      });
+      tcard.appendChild(el("p", "travel-caveat",
+        "Times and fares change seasonally — treat these as a guide and check the official link on the day."));
+      section.appendChild(tcard);
+    }
 
     region.towns.forEach(function (town) {
       section.appendChild(renderTown(town));

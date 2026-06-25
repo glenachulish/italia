@@ -351,8 +351,76 @@ main {
   top: 0.6rem;
 }
 
+/* ---- Eat & drink ---- */
+.food {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+.food-item {
+  border-left: 2px solid var(--brass);
+  padding-left: 0.7rem;
+}
+.food-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.food-name {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+.food-kind {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.08rem 0.4rem;
+  border-radius: 999px;
+  color: #fff;
+}
+.food-kind.pizza  { background: #b1502f; }
+.food-kind.pasta  { background: #9a7b1e; }
+.food-kind.coffee { background: #6b4a2b; }
+.food-note {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #2c3e44;
+  margin: 0.25rem 0 0.45rem;
+}
+
+/* ---- Getting around ---- */
+.travel-card { background: #fbf7ee; }
+.travel-item {
+  border-top: 1px solid var(--paper-deep);
+  padding-top: 0.7rem;
+  margin-top: 0.7rem;
+}
+.travel-item:first-of-type { border-top: none; padding-top: 0.2rem; margin-top: 0; }
+.travel-route {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.04rem;
+}
+.travel-detail {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #2c3e44;
+  margin: 0.3rem 0 0.5rem;
+}
+.travel-caveat {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--stone);
+  margin-top: 0.9rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--paper-deep);
+}
+
 /* ---- Footer ---- */
-.footer {
   text-align: center;
   color: var(--stone);
   font-size: 0.8rem;

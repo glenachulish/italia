@@ -38,6 +38,28 @@ const ITALIA = {
       id: "bergamo",
       name: "Bergamo",
       tagline: "A walled upper town above a working city",
+      travel: [
+        {
+          route: "Getting around Bergamo (ATB)",
+          detail: "Single ticket ~€1.50, valid 75 min across buses + both funiculars (one transfer). 24h pass ~€5.50. Tap a contactless card on board ('Passa e vai') — no need to pre-buy. Kids under 10 free.",
+          url: "https://www.atb.bergamo.it/",
+        },
+        {
+          route: "Funicular to Città Alta",
+          detail: "From Viale Vittorio Emanuele II up to Piazza Mercato delle Scarpe. Every ~7 min, roughly 07:00–00:30 (later Fri/Sat). Covered by the €1.50 ticket. Bus lines 1/1A also go up if the queue is long.",
+          url: "https://www.visitbergamo.net/en/oggetto/citys-funicular/",
+        },
+        {
+          route: "Airport (Orio al Serio) ↔ city",
+          detail: "ATB Line 1, every ~20 min, ~€2.60, 15–20 min to the station / 25–30 to Città Alta.",
+          url: "https://www.atb.bergamo.it/",
+        },
+        {
+          route: "Bergamo ↔ Milan (train)",
+          detail: "Frequent Trenord regional trains from Bergamo station, ~50–60 min. Buy at machines/windows or the Trenord app; check live times before travelling.",
+          url: "https://www.trenord.it/en/",
+        },
+      ],
       towns: [
         {
           id: "citta-alta",
@@ -95,9 +117,36 @@ const ITALIA = {
               tags: ["view", "walk", "nature"],
             },
           ],
+          food: [
+            {
+              name: "La Marianna",
+              note: "Café & gelateria where stracciatella was invented in 1961. Shaded courtyard; best pastries in the morning.",
+              kind: "coffee",
+              maps: "La Marianna, Colle Aperto, Bergamo",
+            },
+            {
+              name: "Da Mimmo",
+              note: "Long-standing institution on Via Colleoni, known for wood-fired pizza and classic dishes. Lively; book ahead. ~€25–40pp.",
+              kind: "pizza",
+              maps: "Da Mimmo, Via Bartolomeo Colleoni, Bergamo",
+            },
+            {
+              name: "Pizza alla Fara",
+              note: "Tiny spot in Città Alta for light, well-made pizza by the slice — handy cheap lunch between sights.",
+              kind: "pizza",
+              maps: "Pizza alla Fara, Bergamo",
+            },
+            {
+              name: "Antica Osteria del Vino Buono",
+              note: "Near Piazza Mercato delle Scarpe — local dishes (casoncelli, polenta), good wine, fair prices. A safe single-meal pick.",
+              kind: "pasta",
+              maps: "Antica Osteria del Vino Buono, Bergamo",
+            },
+          ],
           tips: [
-            "Funicular up is about €1.70 and a few minutes — worth it in July heat.",
+            "Funicular up is about €1.50 and a few minutes — worth it in July heat.",
             "Stracciatella gelato was invented at La Marianna in Colle Aperto in 1961.",
+            "Many trattorias close Mondays; dinner from ~19:30. Book ahead in Città Alta.",
           ],
         },
         {
@@ -124,6 +173,26 @@ const ITALIA = {
               tags: ["football", "shop"],
             },
           ],
+          food: [
+            {
+              name: "Trattoria Parietti",
+              note: "On Via San Tomaso near the Carrara — rustic Bergamasco home cooking, fixed-price menus, very good value. Popular; reserve.",
+              kind: "pasta",
+              maps: "Trattoria Parietti, Via San Tomaso, Bergamo",
+            },
+            {
+              name: "Il Fornaio",
+              note: "Reliable pizza al taglio (by the slice) with good toppings — quick, cheap bite while shopping in the lower town.",
+              kind: "pizza",
+              maps: "Il Fornaio, Bergamo",
+            },
+            {
+              name: "Gelateria La Romana",
+              note: "Consistently excellent gelato — a dependable cool-down on a hot afternoon.",
+              kind: "coffee",
+              maps: "Gelateria La Romana, Bergamo",
+            },
+          ],
           tips: [
             "Bergamo is a UNESCO cheese city — try Taleggio, Branzi, Formai de Mut.",
             "The two icons to eat: casoncelli (stuffed pasta) and polenta taragna.",
@@ -136,6 +205,23 @@ const ITALIA = {
       id: "iseo",
       name: "Lovere & Lake Iseo",
       tagline: "The quieter, wilder lake",
+      travel: [
+        {
+          route: "Bergamo ↔ Lovere (bus Line C)",
+          detail: "From Bergamo Autostazione (next to the train station), roughly hourly, ~75 min, via Endine and Lake Endine. Run by Bergamo Trasporti / Arriva — buy from the driver or the station office. A summer timetable runs ~9 Jun–13 Sep.",
+          url: "https://www.bergamotrasporti.it/",
+        },
+        {
+          route: "Lake Iseo ferries (Navigazione Lago d'Iseo)",
+          detail: "Single hops are cheap (roughly €4–6); Monte Isola return ~€5–6 incl. landing fee. Children under 14 travel free with an adult. Timetable is strongly seasonal — always check the live schedule before each trip.",
+          url: "https://navigazionelagoiseo.it/en/scheduled-services/tickets-fares/",
+        },
+        {
+          route: "Ferry timetable & route map",
+          detail: "Official live timetables and the full route map (Lovere, Pisogne, Monte Isola, Iseo, Sarnico). Buy on board, at the jetty office, or online (QR on phone is fine).",
+          url: "https://www.navigazionelagoiseo.it/en/",
+        },
+      ],
       towns: [
         {
           id: "lovere",
@@ -177,9 +263,24 @@ const ITALIA = {
               tags: ["swim"],
             },
           ],
+          food: [
+            {
+              name: "Lakefront bars & gelaterie",
+              note: "The lungolago (waterfront) is lined with cafés and gelato spots — best enjoyed slowly at golden hour. Pick by the view and the queue of locals.",
+              kind: "coffee",
+              maps: "Lungolago Marconi, Lovere",
+            },
+            {
+              name: "Pizzerias around Piazza Tredici Martiri",
+              note: "The main square and side streets hold several pizza and pasta spots; lake fish (perch, trout) features on local menus. Verify on the spot — Lovere's scene is small and seasonal.",
+              kind: "pizza",
+              maps: "Piazza Tredici Martiri, Lovere",
+            },
+          ],
           tips: [
             "Bus Line C from Bergamo Autostazione runs roughly hourly (~75 min).",
             "The lake ferry timetable is seasonal — check navigazionelagoiseo.it before each trip.",
+            "Lake fish (perch risotto, marinated sardines) is the local speciality — look for it on menus.",
           ],
         },
         {
