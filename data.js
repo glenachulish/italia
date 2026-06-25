@@ -33,6 +33,122 @@ const ITALIA = {
     { word: "Öna fèta", meaning: "A slice (of polenta, cake…)" },
   ],
 
+  // ---- Language section ----
+  // A small phrasebook for the trip. Each phrase: { en, it, say }
+  //   en  : English
+  //   it  : Italian
+  //   say : rough pronunciation (stressed syllable in CAPS-ish; · separates beats)
+  // `dialect` (above) is folded in at the end as a bit of local Bergamasco colour.
+  language: {
+    intro:
+      "Standard Italian is understood everywhere you're going. A little effort goes a long way — even just buongiorno, per favore and grazie. Stress usually falls on the second-to-last syllable; double consonants are held a touch longer.",
+    groups: [
+      {
+        title: "Basics",
+        phrases: [
+          { en: "Hello", it: "Buongiorno", say: "bwon-JOR-no" },
+          { en: "Goodbye", it: "Arrivederci", say: "a-ree-ve-DER-chee" },
+          { en: "Yes / No", it: "Sì / No", say: "see / no" },
+          { en: "Excuse me", it: "Mi scusi (pol) / Scusami (inf)", say: "mee SKOO-zee / SKOO-za-mee" },
+          { en: "Sorry", it: "Mi dispiace", say: "mee dees-PYA-che" },
+          { en: "Please", it: "Per favore", say: "per fa-VO-re" },
+          { en: "Thank you", it: "Grazie", say: "GRA-tsye" },
+          { en: "You're welcome", it: "Prego", say: "PRE-go" },
+          { en: "How are you?", it: "Come sta? (pol) / Come stai? (inf)", say: "KO-me sta / KO-me stai" },
+          { en: "Fine, and you?", it: "Bene. E lei? / E tu?", say: "BE-ne. e lay / e too" },
+          { en: "What's your name?", it: "Come si chiama? (pol) / Come ti chiami? (inf)", say: "KO-me see KYA-ma / KO-me tee KYA-mee" },
+          { en: "My name is …", it: "Mi chiamo …", say: "mee KYA-mo …" },
+          { en: "Do you speak English?", it: "Parla / Parli inglese?", say: "PAR-la / PAR-lee een-GLE-ze" },
+          { en: "I don't understand", it: "Non capisco", say: "non ka-PEE-sko" },
+        ],
+      },
+      {
+        title: "Directions",
+        phrases: [
+          { en: "Where's …?", it: "Dov'è …?", say: "do-VE …" },
+          { en: "What's the address?", it: "Qual è l'indirizzo?", say: "kwal e leen-dee-REE-tso" },
+          { en: "Can you show me (on the map)?", it: "Può mostrarmi (sulla pianta)?", say: "pwo mos-TRAR-mee (SOO-la PYAN-ta)" },
+          { en: "Where's the station?", it: "Dov'è la stazione?", say: "do-VE la sta-TSYO-ne" },
+          { en: "I'm looking for (a hotel)", it: "Sto cercando (un albergo)", say: "sto cher-KAN-do (oon al-BER-go)" },
+        ],
+      },
+      {
+        title: "Eating & drinking",
+        phrases: [
+          { en: "What would you recommend?", it: "Cosa mi consiglia?", say: "KO-za mee kon-SEE-lya" },
+          { en: "What's the local speciality?", it: "Qual è la specialità di questa regione?", say: "kwal e la spe-cha-lee-TA dee KWE-sta re-JO-ne" },
+          { en: "Cheers!", it: "Salute!", say: "sa-LOO-te" },
+          { en: "That was delicious!", it: "Era squisito!", say: "E-ra skwee-ZEE-to" },
+          { en: "Please bring the bill", it: "Mi porta il conto, per favore", say: "mee POR-ta eel KON-to, per fa-VO-re" },
+          { en: "I'd like to reserve a table for …", it: "Vorrei prenotare un tavolo per …", say: "vo-RAY pre-no-TA-re oon TA-vo-lo per …" },
+          { en: "I don't eat …", it: "Non mangio …", say: "non MAN-jo …" },
+          { en: "A coffee, please", it: "Un caffè, per favore", say: "oon ka-FE, per fa-VO-re" },
+          { en: "Vegetarian", it: "Vegetariano", say: "ve-je-ta-RYA-no" },
+        ],
+      },
+      {
+        title: "Shopping & money",
+        phrases: [
+          { en: "I'm just looking", it: "Sto solo guardando", say: "sto SO-lo gwar-DAN-do" },
+          { en: "How much is this?", it: "Quanto costa questo?", say: "KWAN-to KOS-ta KWE-sto" },
+          { en: "It's too expensive", it: "È troppo caro", say: "e TRO-po KA-ro" },
+          { en: "There's a mistake in the bill", it: "C'è un errore nel conto", say: "che oon e-RO-re nel KON-to" },
+          { en: "ATM", it: "Bancomat", say: "BAN-ko-mat" },
+          { en: "Tourist office", it: "Ufficio del turismo", say: "oo-FEE-cho del too-REEZ-mo" },
+        ],
+      },
+      {
+        title: "Transport",
+        phrases: [
+          { en: "Train", it: "Treno", say: "TRE-no" },
+          { en: "Bus", it: "Autobus", say: "OW-to-boos" },
+          { en: "Bus stop", it: "Fermata dell'autobus", say: "fer-MA-ta del OW-to-boos" },
+          { en: "Ferry", it: "Traghetto", say: "tra-GE-to" },
+          { en: "Ticket office", it: "Biglietteria", say: "bee-lye-te-REE-a" },
+          { en: "A … ticket", it: "Un biglietto …", say: "oon bee-LYE-to …" },
+          { en: "One way", it: "Di sola andata", say: "dee SO-la an-DA-ta" },
+          { en: "Return", it: "Di andata e ritorno", say: "dee an-DA-ta e ree-TOR-no" },
+          { en: "Does it stop at …?", it: "Si ferma a …?", say: "see FER-ma a …" },
+          { en: "I want to get off here", it: "Voglio scendere qui", say: "VO-lyo SHEN-de-re kwee" },
+        ],
+      },
+      {
+        title: "Time & numbers",
+        phrases: [
+          { en: "What time is it?", it: "Che ora è?", say: "ke O-ra e" },
+          { en: "Today", it: "Oggi", say: "O-jee" },
+          { en: "Tomorrow", it: "Domani", say: "do-MA-nee" },
+          { en: "Yesterday", it: "Ieri", say: "YE-ree" },
+          { en: "One … two … three", it: "Uno … due … tre", say: "OO-no … DOO-e … tre" },
+          { en: "Four … five … six", it: "Quattro … cinque … sei", say: "KWA-tro … CHEEN-kwe … say" },
+          { en: "Ten … twenty … hundred", it: "Dieci … venti … cento", say: "DYE-chee … VEN-tee … CHEN-to" },
+        ],
+      },
+      {
+        title: "Emergencies",
+        phrases: [
+          { en: "Help!", it: "Aiuto!", say: "a-YOO-to" },
+          { en: "I'm lost", it: "Mi sono perso / persa", say: "mee SO-no PER-so / PER-sa" },
+          { en: "Call the police!", it: "Chiami la polizia!", say: "KYA-mee la po-lee-TSEE-a" },
+          { en: "Call a doctor!", it: "Chiami un medico!", say: "KYA-mee oon ME-dee-ko" },
+          { en: "Where are the toilets?", it: "Dove sono i gabinetti?", say: "DO-ve SO-no ee ga-bee-NE-tee" },
+          { en: "I'm sick", it: "Mi sento male", say: "mee SEN-to MA-le" },
+        ],
+      },
+    ],
+    // A few signs worth recognising at a glance (from the phrasebook).
+    signs: [
+      { it: "Aperto", en: "Open" },
+      { it: "Chiuso", en: "Closed" },
+      { it: "Entrata / Ingresso", en: "Entrance" },
+      { it: "Uscita", en: "Exit" },
+      { it: "Proibito / Vietato", en: "Prohibited" },
+      { it: "Gabinetti / Servizi", en: "Toilets" },
+      { it: "Uomini", en: "Men" },
+      { it: "Donne", en: "Women" },
+    ],
+  },
+
   regions: [
     {
       id: "bergamo",

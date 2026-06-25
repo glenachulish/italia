@@ -175,6 +175,62 @@
     return section;
   }
 
+  // ---- Language section ----
+  function renderLanguage(lang) {
+    var section = el("section", "region language-region");
+    section.id = "region-language";
+
+    var head = el("div", "region-head");
+    head.appendChild(el("h2", "region-name", "Language"));
+    head.appendChild(el("p", "region-tag", "A pocket phrasebook for the trip"));
+    section.appendChild(head);
+
+    var card = el("article", "town language-card");
+    if (lang.intro) card.appendChild(el("p", "town-blurb", lang.intro));
+
+    (lang.groups || []).forEach(function (group) {
+      card.appendChild(el("p", "section-label", group.title));
+      var wrap = el("div", "phrases");
+      group.phrases.forEach(function (p) {
+        var row = el("div", "phrase");
+        row.appendChild(el("div", "phrase-en", p.en));
+        var line = el("div", "phrase-line");
+        line.appendChild(el("span", "phrase-it", p.it));
+        if (p.say) line.appendChild(el("span", "phrase-say", p.say));
+        row.appendChild(line);
+        wrap.appendChild(row);
+      });
+      card.appendChild(wrap);
+    });
+
+    if (lang.signs && lang.signs.length) {
+      card.appendChild(el("p", "section-label", "Signs"));
+      var sgrid = el("div", "signs");
+      lang.signs.forEach(function (s) {
+        var row = el("div", "sign");
+        row.appendChild(el("span", "sign-it", s.it));
+        row.appendChild(el("span", "sign-en", s.en));
+        sgrid.appendChild(row);
+      });
+      card.appendChild(sgrid);
+    }
+
+    if (ITALIA.dialect && ITALIA.dialect.length) {
+      card.appendChild(el("p", "section-label", "A little Bergamasco"));
+      var dgrid = el("div", "signs");
+      ITALIA.dialect.forEach(function (d) {
+        var row = el("div", "sign");
+        row.appendChild(el("span", "sign-it", d.word));
+        row.appendChild(el("span", "sign-en", d.meaning));
+        dgrid.appendChild(row);
+      });
+      card.appendChild(dgrid);
+    }
+
+    section.appendChild(card);
+    return section;
+  }
+
   // ---- Collect all tags, build filter chips ----
   function allTags() {
     var seen = {};
@@ -206,6 +262,9 @@
     app.querySelectorAll(".travel-card").forEach(function (tc) {
       tc.style.display = showTravel ? "" : "none";
     });
+    // The Language section is reference content — show it only on "Everything".
+    var langSection = document.getElementById("region-language");
+    if (langSection) langSection.style.display = tag ? "none" : "";
     // Hide towns that have places but none currently visible.
     // (Travel cards are skipped — they're handled above.)
     app.querySelectorAll(".town").forEach(function (town) {
@@ -216,6 +275,7 @@
     });
     // Hide regions where nothing is visible (no visible towns AND no visible travel card).
     app.querySelectorAll(".region").forEach(function (region) {
+      if (region.id === "region-language") return; // handled above
       var visibleTowns = Array.prototype.filter.call(
         region.querySelectorAll(".town:not(.travel-card)"),
         function (t) { return t.style.display !== "none"; }
@@ -268,17 +328,33 @@
     nav.appendChild(btn);
   });
 
+  // Extra nav button for the Language section.
+  if (ITALIA.language) {
+    var langBtn = el("button", null, "Language");
+    langBtn.addEventListener("click", function () {
+      var target = document.getElementById("region-language");
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    nav.appendChild(langBtn);
+  }
+
   // ---- Render ----
   app.appendChild(buildFilter());
   ITALIA.regions.forEach(function (region) {
     app.appendChild(renderRegion(region));
   });
+  if (ITALIA.language) {
+    app.appendChild(renderLanguage(ITALIA.language));
+  }
 
   // ---- Scroll-spy on the region nav ----
   var buttons = Array.prototype.slice.call(nav.querySelectorAll("button"));
   var sections = ITALIA.regions.map(function (r) {
     return document.getElementById("region-" + r.id);
   });
+  if (ITALIA.language) {
+    sections.push(document.getElementById("region-language"));
+  }
 
   if ("IntersectionObserver" in window) {
     var observer = new IntersectionObserver(
