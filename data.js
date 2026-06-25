@@ -457,7 +457,7 @@ const ITALIA = {
           name: "Day trips on the lake",
           base: "Lovere",
           blurb:
-            "Two easy ferry hops that make a day each — a car-free island and a frescoed church across the water.",
+            "Two easy ferry hops that make a day each — a car-free island and a frescoed church across the water — plus a wetland reserve and its monastery at the south end of the lake.",
           places: [
             {
               name: "Monte Isola",
@@ -477,10 +477,27 @@ const ITALIA = {
               url: "https://visitlakeiseo.info/en/",
               tags: ["art", "history", "culture"],
             },
+            {
+              name: "Riserva Naturale Torbiere del Sebino",
+              blurb:
+                "A 360-hectare wetland at the southern tip of Lake Iseo, where old peat workings have left a maze of reed beds, ponds and open water. Wooden boardwalks and bridges carry you out over the water on looping trails (a short ~4km circuit or a fuller ~9km route), and the reserve is a major bird haven — best at dawn or dusk. Open daily sunrise to sunset; small ticket from machines at the entrances. Reachable on foot from Iseo, or from the Monastero San Pietro in Lamosa car park at Provaglio d'Iseo. Bring water — no shops inside.",
+              maps: "Riserva Naturale Torbiere del Sebino, Provaglio d'Iseo",
+              url: "https://www.torbieresebino.it/en/welcome/",
+              tags: ["nature", "walk", "view", "photography"],
+            },
+            {
+              name: "Monastero di San Pietro in Lamosa",
+              blurb:
+                "An 11th-century Cluniac monastery on a rocky rise above the Torbiere wetlands, with sweeping views over the reserve. Because the church was never fully remodelled, its walls are a layered record of fresco styles from the 12th to 16th centuries — including an unfinished apostle series where one side is fully painted and the other still in sepia underdrawing. A quiet, atmospheric stop right at the Provaglio entrance to the reserve. Church free with donation; the disciplina and cloister keep limited afternoon hours.",
+              maps: "Monastero di San Pietro in Lamosa, Provaglio d'Iseo",
+              url: "https://monasterosanpietroinlamosa.it/",
+              tags: ["history", "art", "culture", "view"],
+            },
           ],
           tips: [
             "Lake ferries are cheap (about €4–6) — buy at the jetty.",
             "Lovere↔Pisogne is the easiest crossing for the frescoes.",
+            "Torbiere del Sebino and its monastery sit at the south end near Iseo — best paired with a day exploring the lower lake rather than a quick hop from Lovere.",
           ],
         },
       ],
