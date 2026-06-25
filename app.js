@@ -113,10 +113,12 @@
     }
 
     if (town.food && town.food.length) {
-      card.appendChild(el("p", "section-label", "Eat & drink"));
+      var foodLabel = el("p", "section-label food-label", "Eat & drink");
+      card.appendChild(foodLabel);
       var fwrap = el("div", "food");
       town.food.forEach(function (f) {
         var row = el("div", "food-item");
+        row.dataset.tags = "food" + (f.kind ? " " + f.kind : "");
         var head = el("div", "food-head");
         head.appendChild(el("span", "food-name", f.name));
         if (f.kind) head.appendChild(el("span", "food-kind " + f.kind, f.kind));
@@ -257,6 +259,17 @@
       var show = !tag || tags.indexOf(tag) !== -1;
       node.style.display = show ? "" : "none";
     });
+    // Eat & drink rows participate in the filter: visible on "Everything"
+    // and on the "food" filter, hidden otherwise.
+    var showFood = !tag || tag === "food";
+    app.querySelectorAll(".food-item").forEach(function (node) {
+      var tags = (node.dataset.tags || "").split(" ");
+      var show = !tag || tags.indexOf(tag) !== -1;
+      node.style.display = show ? "" : "none";
+    });
+    app.querySelectorAll(".food-label, .food").forEach(function (node) {
+      node.style.display = showFood ? "" : "none";
+    });
     // Travel panels show only on "Everything" or the transport filter.
     var showTravel = !tag || tag === "transport";
     app.querySelectorAll(".travel-card").forEach(function (tc) {
@@ -265,13 +278,16 @@
     // The Language section is reference content — show it only on "Everything".
     var langSection = document.getElementById("region-language");
     if (langSection) langSection.style.display = tag ? "none" : "";
-    // Hide towns that have places but none currently visible.
+    // Hide towns that have content but none currently visible.
+    // A town stays if it has a visible place OR a visible food item.
     // (Travel cards are skipped — they're handled above.)
     app.querySelectorAll(".town").forEach(function (town) {
       if (town.classList.contains("travel-card")) return;
-      var visible = town.querySelectorAll(".place:not([style*='none'])").length;
-      var hasPlaces = town.querySelectorAll(".place").length > 0;
-      town.style.display = (hasPlaces && !visible) ? "none" : "";
+      var visiblePlaces = town.querySelectorAll(".place:not([style*='none'])").length;
+      var visibleFood = town.querySelectorAll(".food-item:not([style*='none'])").length;
+      var hasContent = town.querySelectorAll(".place").length > 0 ||
+                       town.querySelectorAll(".food-item").length > 0;
+      town.style.display = (hasContent && !visiblePlaces && !visibleFood) ? "none" : "";
     });
     // Hide regions where nothing is visible (no visible towns AND no visible travel card).
     app.querySelectorAll(".region").forEach(function (region) {
