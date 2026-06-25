@@ -70,6 +70,7 @@ const ITALIA = {
           places: [
             {
               name: "Piazza Vecchia",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Bergamo%20-%20Panorama%20da%20Piazza%20Vecchia.jpg?width=600",
               blurb:
                 "The Renaissance square Le Corbusier called too perfect to touch. Climb the Campanone civic tower for the view — it still rings 100 chimes at 10pm.",
               maps: "Piazza Vecchia, Bergamo",
@@ -78,6 +79,7 @@ const ITALIA = {
             },
             {
               name: "Accademia Carrara",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Accademia%20Carrara.JPG?width=600",
               blurb:
                 "The standout for the art-lovers: Botticelli, Raphael, Mantegna, Bellini, Titian. Calm, well-lit, and rarely crowded.",
               maps: "Accademia Carrara, Bergamo",
@@ -94,6 +96,7 @@ const ITALIA = {
             },
             {
               name: "Cappella Colleoni",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Bergamo%2C%20Cappella%20Colleoni%202021.jpg?width=600",
               blurb:
                 "A Renaissance chapel in coloured marble beside Santa Maria Maggiore — extravagant frescoes and inlay, free to step into.",
               maps: "Cappella Colleoni, Bergamo",
@@ -102,6 +105,7 @@ const ITALIA = {
             },
             {
               name: "The Venetian Walls",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Venetian%20walls%20of%20Bergamo%2C%2015th-16th%20centuries%20%281%29.jpg?width=600",
               blurb:
                 "A flat, scenic loop right round the upper town, with telescopes, benches and the best sunsets in Bergamo. Easy for all five of you.",
               maps: "Mura Venete, Bergamo",
@@ -110,6 +114,7 @@ const ITALIA = {
             },
             {
               name: "San Vigilio hill",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Bergamo%20Alta%20S%20Vigilio.jpg?width=600",
               blurb:
                 "The upper funicular climbs to a small castle and the widest panorama over the city and out toward the plain.",
               maps: "Castello di San Vigilio, Bergamo",
@@ -158,6 +163,7 @@ const ITALIA = {
           places: [
             {
               name: "Via XX Settembre",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Via%20XX%20settembre%2C%20Bergamo.jpg?width=600",
               blurb:
                 "The main fashion street in the lower town — high-street brands and boutiques, the obvious draw for the teenagers.",
               maps: "Via XX Settembre, Bergamo",
@@ -232,6 +238,7 @@ const ITALIA = {
           places: [
             {
               name: "Accademia Tadini",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Lovere%20Accademia%20Tadini.JPG?width=600",
               blurb:
                 "A neoclassical lakeside gallery with works by Canova — another one for the art-lovers, and a cool indoor option on a hot afternoon.",
               maps: "Accademia Tadini, Lovere",
@@ -240,6 +247,7 @@ const ITALIA = {
             },
             {
               name: "Lakeside promenades",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Lake%20Iseo%20and%20Lovere%20from%20Ceratello.jpg?width=600",
               blurb:
                 "About 2km of easy waterfront strolling through the old town, best at golden hour for photos and gelato.",
               maps: "Lungolago Giosuè Carducci, Lovere",
@@ -337,6 +345,7 @@ const ITALIA = {
           places: [
             {
               name: "Monte Isola",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Monte%20Isola.jpg?width=600",
               blurb:
                 "Europe's largest lake island, car-free, reached by cheap ferry. Walk or rent bikes, climb to the Madonna della Ceriola sanctuary for the view, and eat lake fish and salami in the fishing villages.",
               maps: "Monte Isola, Lago d'Iseo",
@@ -345,6 +354,7 @@ const ITALIA = {
             },
             {
               name: "Santa Maria della Neve, Pisogne",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Santa%20Maria%20della%20Neve%20Pisogne%201.JPG?width=600",
               blurb:
                 "The 'Sistine Chapel of the Poor' — Romanino frescoes in a small church a quick ferry hop from Lovere.",
               maps: "Santa Maria della Neve, Pisogne",
@@ -383,6 +393,7 @@ const ITALIA = {
             },
             {
               name: "Galleria Vittorio Emanuele II",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Veduta%20della%20Galleria%20Vittorio%20Emanuele%20II%20da%20piazza%20del%20Duomo%2C%20Milano.jpg?width=600",
               blurb:
                 "The glass-roofed 19th-century arcade beside the Duomo — Prada, Versace, and the grandest window-shopping in Italy.",
               maps: "Galleria Vittorio Emanuele II, Milano",
@@ -391,6 +402,7 @@ const ITALIA = {
             },
             {
               name: "Quadrilatero della Moda",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Via%20Monte%20Napoleone%2C%20Milan%2C%20Italy.jpg?width=600",
               blurb:
                 "The fashion quarter — Via Montenapoleone and around. For the girls' fashion interest and the boy's eye for clothes, this is the heart of it.",
               maps: "Via Montenapoleone, Milano",
@@ -399,6 +411,7 @@ const ITALIA = {
             },
             {
               name: "San Siro Stadium",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/San%20Siro%20Stadio%20in%202025%2001.jpg?width=600",
               blurb:
                 "The Milan football cathedral, with a museum and tour — a draw for the football fan if there's appetite for a tram ride out from the centre.",
               maps: "Stadio San Siro, Milano",
@@ -407,6 +420,7 @@ const ITALIA = {
             },
             {
               name: "Pinacoteca di Brera",
+              photo: "https://commons.wikimedia.org/wiki/Special:FilePath/Milano%20Pinacoteca%20di%20Brera1.JPG?width=600",
               blurb:
                 "A deeper, quieter art hit than the crowds expect, in the arty Brera district — good if the day leans cultural.",
               maps: "Pinacoteca di Brera, Milano",
