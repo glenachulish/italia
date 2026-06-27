@@ -234,6 +234,19 @@
   }
 
   // ---- Collect all tags, build filter chips ----
+  // Food kinds that appear in any town's food[] list — each becomes its own chip.
+  function foodKinds() {
+    var seen = {};
+    ITALIA.regions.forEach(function (r) {
+      r.towns.forEach(function (t) {
+        (t.food || []).forEach(function (f) {
+          if (f.kind) seen[f.kind] = true;
+        });
+      });
+    });
+    return seen;
+  }
+
   function allTags() {
     var seen = {};
     ITALIA.regions.forEach(function (r) {
@@ -243,6 +256,9 @@
         });
       });
     });
+    // Surface every food kind (pasta, pizza, gelato, sushi, aperitivo, …) as a chip.
+    var fk = foodKinds();
+    Object.keys(fk).forEach(function (k) { seen[k] = true; });
     // "transport" always appears — tapping it reveals the Getting Around panels,
     // even if no individual place carries the tag.
     if (ITALIA.regions.some(function (r) { return r.travel && r.travel.length; })) {
@@ -259,9 +275,12 @@
       var show = !tag || tags.indexOf(tag) !== -1;
       node.style.display = show ? "" : "none";
     });
-    // Eat & drink rows participate in the filter: visible on "Everything"
-    // and on the "food" filter, hidden otherwise.
-    var showFood = !tag || tag === "food";
+    // Eat & drink rows participate in the filter: visible on "Everything",
+    // on the generic "food" filter, and on any specific food-kind filter
+    // (pasta, pizza, gelato, sushi, aperitivo, …). Rows themselves carry
+    // data-tags="food <kind>", so the per-row check below filters by kind.
+    var foodKindSet = foodKinds();
+    var showFood = !tag || tag === "food" || foodKindSet.hasOwnProperty(tag);
     app.querySelectorAll(".food-item").forEach(function (node) {
       var tags = (node.dataset.tags || "").split(" ");
       var show = !tag || tags.indexOf(tag) !== -1;
@@ -317,7 +336,16 @@
     bar.appendChild(all);
 
     allTags().forEach(function (tag) {
-      var labels = { transport: "Getting around" };
+      var labels = {
+        transport: "Getting around",
+        food: "Eat & drink",
+        coffee: "Coffee & cafés",
+        aperitivo: "Aperitivo",
+        gelato: "Gelato",
+        sushi: "Sushi",
+        pasta: "Pasta",
+        pizza: "Pizza",
+      };
       var b = el("button", "fchip", labels[tag] || tag);
       b.addEventListener("click", function () {
         setActiveChip(b);

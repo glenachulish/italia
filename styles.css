@@ -385,6 +385,9 @@ main {
 .food-kind.pizza  { background: #b1502f; }
 .food-kind.pasta  { background: #9a7b1e; }
 .food-kind.coffee { background: #6b4a2b; }
+.food-kind.gelato { background: #c2698f; }
+.food-kind.sushi  { background: #2f7d6b; }
+.food-kind.aperitivo { background: #c8772a; }
 .food-note {
   font-size: 0.9rem;
   line-height: 1.45;
